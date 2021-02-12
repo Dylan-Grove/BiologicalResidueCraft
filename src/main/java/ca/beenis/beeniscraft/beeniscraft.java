@@ -1,4 +1,4 @@
-//test and shit
+//test
 
 package ca.beenis.beeniscraft;
 
