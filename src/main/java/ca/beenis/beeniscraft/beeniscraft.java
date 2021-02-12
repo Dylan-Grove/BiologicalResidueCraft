@@ -1,3 +1,5 @@
+//test
+
 package ca.beenis.beeniscraft;
 
 import ca.beenis.beeniscraft.block.NonBlockBlocks;
