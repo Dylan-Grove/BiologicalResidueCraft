@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "xxx",
+    "   "
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "beeniscraft:shit_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "beeniscraft:shit_wire",
+    "count:": 6
+  }
+}

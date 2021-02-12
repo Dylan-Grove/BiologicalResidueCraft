@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "xyx",
+    " x "
+  ],
+  "key":
+  {
+    "y":
+    {
+      "item": "beeniscraft:shit_ingot"
+    },
+    "x":
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "beeniscraft:can_of_shit",
+    "count": 6
+  }
+}
+
