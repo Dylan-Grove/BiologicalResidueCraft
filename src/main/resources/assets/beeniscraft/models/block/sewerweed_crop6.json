@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "beeniscraft:block/sewerweed_crop_stage6"
+  }
+}

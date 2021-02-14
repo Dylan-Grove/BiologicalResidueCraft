@@ -2,14 +2,14 @@
 
 package ca.beenis.beeniscraft;
 
-import ca.beenis.beeniscraft.block.NonBlockBlocks;
-import ca.beenis.beeniscraft.block.ShitBlock;
-import ca.beenis.beeniscraft.block.ShitOre;
+import ca.beenis.beeniscraft.block.*;
 import ca.beenis.beeniscraft.events.ModEvents;
 import ca.beenis.beeniscraft.item.*;
 import ca.beenis.beeniscraft.util.Config;
 import ca.beenis.beeniscraft.util.Registration;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -60,6 +60,8 @@ public class beeniscraft
         CanOfShit.register();
         ShitArmor.register();
         NonBlockBlocks.register();
+        SewerWeedCropSeeds.register();
+        SewerWeedCropBlock.register();
 
 
         MinecraftForge.EVENT_BUS.register(new ModEvents());
@@ -87,9 +89,9 @@ public class beeniscraft
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+    private void doClientStuff(final FMLClientSetupEvent event)
+    {
+        RenderTypeLookup.setRenderLayer(SewerWeedCropBlock.SEWERWEED_CROP.get(), RenderType.getCutout());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "beeniscraft:block/sewerweed_crop0" },
+    "age=1": { "model": "beeniscraft:block/sewerweed_crop1" },
+    "age=2": { "model": "beeniscraft:block/sewerweed_crop2" },
+    "age=3": { "model": "beeniscraft:block/sewerweed_crop3" },
+    "age=4": { "model": "beeniscraft:block/sewerweed_crop4" },
+    "age=5": { "model": "beeniscraft:block/sewerweed_crop5" },
+    "age=6": { "model": "beeniscraft:block/sewerweed_crop6" },
+    "age=7": { "model": "beeniscraft:block/sewerweed_crop7" }
+  }
+}
