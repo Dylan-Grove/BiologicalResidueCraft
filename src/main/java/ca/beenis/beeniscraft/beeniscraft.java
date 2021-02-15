@@ -5,6 +5,9 @@ package ca.beenis.beeniscraft;
 import ca.beenis.beeniscraft.block.*;
 import ca.beenis.beeniscraft.events.ModEvents;
 import ca.beenis.beeniscraft.item.*;
+import ca.beenis.beeniscraft.setup.ClientProxy;
+import ca.beenis.beeniscraft.setup.IProxy;
+import ca.beenis.beeniscraft.setup.ServerProxy;
 import ca.beenis.beeniscraft.util.Config;
 import ca.beenis.beeniscraft.util.Registration;
 import net.minecraft.block.Blocks;
@@ -14,6 +17,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -43,15 +47,50 @@ public class beeniscraft
         }
     };
 
+    public static IProxy proxy;
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public beeniscraft() {
 
+        proxy = DistExecutor.safeRunForDist(() ->ClientProxy::new, () -> ServerProxy::new);
+
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+
+        registerModAdditions();
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void setup(final FMLCommonSetupEvent event) {
+        registerConfigs();
+
+        proxy.init();
+
+        loadConfigs();
+
+    }
+
+    private void registerConfigs(){
+
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.SERVER_CONFIG);
+    }
 
-        Registration.register();
+    private void loadConfigs(){
+
+        Config.loadConfigFile(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("beeniscraft-client.toml").toString());
+        Config.loadConfigFile(Config.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve("beeniscraft-server.toml").toString());
+    }
+
+    private void registerModAdditions(){
+
+        //inits the registration of our additions
+        Registration.init();
+
+        //register items and blocks added
         ShitBlock.register();
         ShitOre.register();
         ShitWire.register();
@@ -65,50 +104,11 @@ public class beeniscraft
         RawSewage.register();
         RawSewageBucket.register();
 
-
+        //register mod events
         MinecraftForge.EVENT_BUS.register(new ModEvents());
-
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
-        Config.loadConfigFile(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("beeniscraft-client.toml").toString());
-        Config.loadConfigFile(Config.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve("beeniscraft-server.toml").toString());
-
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-    // comment!
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event)
-    {
-        RenderTypeLookup.setRenderLayer(SewerWeedCropBlock.SEWERWEED_CROP.get(), RenderType.getCutout());
-    }
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-        // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
-    }
-
-    private void processIMC(final InterModProcessEvent event)
-    {
-        // some example code to receive and process InterModComms from other mods
-        LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m->m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
-    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
