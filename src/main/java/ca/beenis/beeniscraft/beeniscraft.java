@@ -103,6 +103,7 @@ public class beeniscraft
         SewerWeedCropBlock.register();
         RawSewage.register();
         RawSewageBucket.register();
+        Electrifier.register();
 
         //register mod events
         MinecraftForge.EVENT_BUS.register(new ModEvents());

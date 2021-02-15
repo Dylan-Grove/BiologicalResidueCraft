@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "beeniscraft:block/electrifier" },
+    "facing=south": { "model": "beeniscraft:block/electrifier", "y": 180 },
+    "facing=west": { "model": "beeniscraft:block/electrifier", "y": 270 },
+    "facing=east": { "model": "beeniscraft:block/electrifier", "y": 90 }
+  }
+}
