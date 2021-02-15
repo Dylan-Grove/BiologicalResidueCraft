@@ -7,9 +7,11 @@
   "item.beeniscraft.shit_leggings": "Shit Leggings",
   "item.beeniscraft.shit_boots": "Shit Boots",
   "item.beeniscraft.can_of_shit": "Can of Shit",
+  "item.beeniscraft.rawsewage_bucket": "Raw Sewage Bucket",
   "block.beeniscraft.shit_block": "Shit Block",
   "block.beeniscraft.shit_ore": "Shit Ore",
   "block.beeniscraft.shit_stairs": "Shit Stairs",
   "block.beeniscraft.sewerweed_crop": "Sewerweed Seeds",
+  "fluid.beeniscraft.rawsewage": "Raw Sewage",
   "itemGroup.beeniscraft": "BeenisCraft"
 }

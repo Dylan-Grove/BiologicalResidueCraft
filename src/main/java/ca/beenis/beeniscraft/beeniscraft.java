@@ -62,6 +62,8 @@ public class beeniscraft
         NonBlockBlocks.register();
         SewerWeedCropSeeds.register();
         SewerWeedCropBlock.register();
+        RawSewage.register();
+        RawSewageBucket.register();
 
 
         MinecraftForge.EVENT_BUS.register(new ModEvents());
