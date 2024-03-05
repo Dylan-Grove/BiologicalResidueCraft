@@ -151,6 +151,6 @@ Project Link: [https://github.com/Dylan-Grove/BiologicalResidueCraft](https://gi
 [issues-shield]: https://img.shields.io/github/issues/Dylan-Grove/BiologicalResidueCraft.svg?style=for-the-badge
 [issues-url]: https://github.com/Dylan-Grove/BiologicalResidueCraft/issues
 [license-shield]: https://img.shields.io/github/license/Dylan-Grove/BiologicalResidueCraft.svg?style=for-the-badge
-[license-url]: https://github.com/Dylan-Grove/BiologicalResidueCraft/LICENSE.txt
+[license-url]: https://github.com/Dylan-Grove/BiologicalResidueCraft/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/DylanRGrove
