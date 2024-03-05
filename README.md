@@ -131,7 +131,7 @@ Distributed under the GNU Lesser General Public License (LGPL) License. See `LIC
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@DylanRGrove]([https://twitter.com/your_username](https://twitter.com/DylanRGrove)) -
+Dylan Grove - [@DylanRGrove](https://twitter.com/DylanRGrove) -
 
 Project Link: [https://github.com/Dylan-Grove/BiologicalResidueCraft](https://github.com/Dylan-Grove/BiologicalResidueCraft)
 
