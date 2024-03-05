@@ -143,7 +143,7 @@ Project Link: [https://github.com/Dylan-Grove/BiologicalResidueCraft](https://gi
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Dylan-Grove/BiologicalResidueCraft.svg?style=for-the-badge
-[contributors-url]: https://github.com/Dylan-Grove/BiologicalResidueCrafte/graphs/contributors
+[contributors-url]: https://github.com/Dylan-Grove/BiologicalResidueCraft/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Dylan-Grove/BiologicalResidueCraft.svg?style=for-the-badge
 [forks-url]: https://github.com/Dylan-Grove/BiologicalResidueCraft/network/members
 [stars-shield]: https://img.shields.io/github/stars/Dylan-Grove/BiologicalResidueCraft.svg?style=for-the-badge
